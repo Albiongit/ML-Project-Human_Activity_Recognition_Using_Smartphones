@@ -155,3 +155,110 @@ print("\nGradient Boosting Machines Model Metrics:")
 print(f"Precision: {gbm_precision}")
 print(f"Recall: {gbm_recall}")
 print(f"F1-Score: {gbm_f1}")
+
+# Exporting results to CSV file
+results_df = test_df.copy()
+results_df['RF Predicted Activity'] = rf_test_predictions
+results_df['GBM Predicted Activity'] = gbm_test_predictions
+
+# Find instances where the algorithms missed the prediction
+results_df['RF Missed Prediction'] = results_df['Activity'] != results_df['RF Predicted Activity']
+results_df['GBM Missed Prediction'] = results_df['Activity'] != results_df['GBM Predicted Activity']
+
+# Calculate the percentage of correct predictions and missed predictions for each algorithm
+rf_correct_percentage = 100 * results_df['RF Missed Prediction'].value_counts(normalize=True)[False]
+gbm_correct_percentage = 100 * results_df['GBM Missed Prediction'].value_counts(normalize=True)[False]
+
+# Plotting the bar chart
+labels = ['Random Forest', 'Gradient Boosting Machines']
+correct_percentages = [rf_correct_percentage, gbm_correct_percentage]
+missed_percentages = [100 - rf_correct_percentage, 100 - gbm_correct_percentage]
+
+x = np.arange(len(labels))
+width = 0.35
+
+fig, ax = plt.subplots()
+rects1 = ax.bar(x - width/2, correct_percentages, width, label='Correct Prediction')
+rects2 = ax.bar(x + width/2, missed_percentages, width, label='Missed Prediction')
+
+ax.set_ylabel('Percentage')
+ax.set_title('Correct vs Missed Predictions by Algorithm')
+ax.set_xticks(x)
+ax.set_xticklabels(labels)
+ax.legend()
+
+def autolabel(rects):
+    for rect in rects:
+        height = rect.get_height()
+        ax.annotate('{}'.format(height),
+                    xy=(rect.get_x() + rect.get_width() / 2, height),
+                    xytext=(0, 3),  # 3 points vertical offset
+                    textcoords="offset points",
+                    ha='center', va='bottom')
+
+autolabel(rects1)
+autolabel(rects2)
+
+fig.tight_layout()
+
+plt.show()
+
+# Calculate the percentage of missed predictions for each activity
+missed_by_activity_rf = results_df[results_df['RF Missed Prediction'] == True]['Activity'].value_counts(normalize=True) * 100
+missed_by_activity_gbm = results_df[results_df['GBM Missed Prediction'] == True]['Activity'].value_counts(normalize=True) * 100
+
+# Combine the missed predictions from both algorithms
+missed_by_activity = missed_by_activity_rf.add(missed_by_activity_gbm, fill_value=0).sort_values(ascending=False)
+
+# Plotting the bar chart
+plt.figure(figsize=(10, 6))
+missed_by_activity.plot(kind='bar')
+plt.title('Percentage of Missed Predictions by Activity')
+plt.xlabel('Activity')
+plt.ylabel('Percentage')
+plt.xticks(rotation=90)
+plt.tight_layout()
+plt.show()
+
+# Calculate the counts of missed predictions for each pair of activities for RF
+missed_pairs_rf = results_df[results_df['RF Missed Prediction'] == True][['Activity', 'RF Predicted Activity']].value_counts()
+
+# Calculate the total counts for each correct activity for RF
+total_counts_rf = results_df['Activity'].value_counts()
+
+# Calculate the percentage of missed predictions for each pair of activities for RF
+percentage_missed_rf = (missed_pairs_rf / total_counts_rf) * 100
+
+# Plotting the bar chart for RF
+plt.figure(figsize=(15, 8))
+percentage_missed_rf.plot(kind='bar')
+plt.title('Percentage of Missed Predictions by Activity Pair (Random Forest)')
+plt.xlabel('Activity Pair')
+plt.ylabel('Percentage')
+plt.xticks(rotation=90)
+plt.tight_layout()
+plt.show()
+
+# Calculate the counts of missed predictions for each pair of activities for GBM
+missed_pairs_gbm = results_df[results_df['GBM Missed Prediction'] == True][['Activity', 'GBM Predicted Activity']].value_counts()
+
+# Calculate the total counts for each correct activity for GBM
+total_counts_gbm = results_df['Activity'].value_counts()
+
+# Calculate the percentage of missed predictions for each pair of activities for GBM
+percentage_missed_gbm = (missed_pairs_gbm / total_counts_gbm) * 100
+
+# Plotting the bar chart for GBM
+plt.figure(figsize=(15, 8))
+percentage_missed_gbm.plot(kind='bar')
+plt.title('Percentage of Missed Predictions by Activity Pair (Gradient Boosting Machines)')
+plt.xlabel('Activity Pair')
+plt.ylabel('Percentage')
+plt.xticks(rotation=90)
+plt.tight_layout()
+plt.show()
+
+# Exporting results to CSV file
+results_df.to_csv('results.csv', index=False)
+
+print("Results exported to 'results.csv' successfully!")
