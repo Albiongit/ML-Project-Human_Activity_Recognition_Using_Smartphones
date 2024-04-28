@@ -35,7 +35,7 @@ with the possibility to add any more suitable algorithm in the future during wor
 In this phase we focused on training the model & doing the evaluation of it afterwards. We will train the model with two algorithms, best suitable for what we want to achieve.
 On the other hand the evaluation was done by calculating precision, recall and F1-Score, but also by visualizing the prediction accuracy by comparing it against a ground truth which in our case is the *ACTIVITY* label in our csv containing the test data.
 
-### Feature Selection
+### • Feature Selection •
 
 The biggest challenge in our project was feature selection, given the vast array of potential features available. To address this challenge, we researched about gyroscope functionality and got insights from research, particularly from the paper [A Public Domain Dataset for Human Activity Recognition using Smartphones](https://www.semanticscholar.org/paper/A-Public-Domain-Dataset-for-Human-Activity-using-Anguita-Ghio/83de43bc849ad3d9579ccf540e6fe566ef90a58e). This paper provided valuable guidance on relevant features for activity recognition tasks using smartphone sensor data. With 561 features in total, exploring all combinations was impractical. Instead, we focused on a targeted selection based on our understanding and the research findings. This approach allowed us to prioritize the most informative features for accurate activity recognition. 
 
@@ -48,12 +48,12 @@ The selected features were chosen based on their relevance to human activity rec
 - **angle(X,gravityMean), angle(Y,gravityMean), angle(Z,gravityMean)**: Angle between each axis and the gravity vector.
 - **tBodyAcc-sma()**: Signal magnitude area of body acceleration.
 
-### Test Data Preparation
+### • Test Data Preparation • 
 
 Important to mention is that test data makes up for roughly 30% of the dataset, whereas the other 70% of the dataset was used only for training.
 Test data was created by combining CSV files similar to the process used for training data. The test data includes features extracted from smartphone sensor readings along with the corresponding activity labels. The test data is exported in a file called **test-data.csv**.
 
-### Chosen Algorithms - Supervised Learning
+### • Chosen Algorithms - Supervised Learning •
 
 #### Random Forest Algorithm
 The Random Forest algorithm was chosen for its ability to handle high-dimensional data and its robustness against overfitting. By using an ensemble of decision trees, Random Forest can effectively capture complex relationships between features and target variables. During training, multiple decision trees are built using random subsets of the data and random subsets of the features, which helps to reduce variance and improve generalization. In our evaluation, the Random Forest model demonstrated strong performance, achieving high precision, recall, and F1-score on the test data.
@@ -62,7 +62,7 @@ The Random Forest algorithm was chosen for its ability to handle high-dimensiona
 Gradient Boosting Machines (GBM) was selected for its ability to build strong predictive models by iteratively improving the weaknesses of previous models. GBM sequentially builds multiple weak learners, such as decision trees, and combines them to create a single strong learner. By minimizing a loss function, GBM focuses on areas where previous models performed poorly, leading to improved accuracy over time. In our evaluation, the GBM model also exhibited high precision, recall, and F1-score on the test data.
 
 
-### Model Evaluation By Calculating Precision, Recall & F1 Score
+### • Model Evaluation By Calculating Precision, Recall & F1 Score •
 
 This is the first method we used for our model evaluation and the results are as below.
 
@@ -80,7 +80,7 @@ Recall: 0.7984390906006108
 F1-Score: 0.7988625485684024
 ```
 
-### Model Evaluation By Comparison
+### • Model Evaluation By Comparison • 
 Another method we used to evaluate our trained model is by comparing it to the correct activity for the rows that we have in our **ACTIVITY** column.
 We have visualized this information to make it easier to understand.
 
@@ -98,7 +98,7 @@ As a last step we took to evaluate our model and check for algorithm's accuracy 
 **GBM**
 ![image](https://github.com/Albiongit/ML-Project-Human_Activity_Recognition_Using_Smartphones/assets/34185066/76cda78e-514d-4710-8e3b-3b1787e8d6b0)
 
-### Conclusions after the evaluation 
+### • Conclusions after the evaluation •
 The most common instances where the algorithms misclassified activities were when the activities involved variations of walking, such as walking, walking upstairs, and walking downstairs.
 Similarly, misclassifications occurred between standing and sitting activities. These errors can be attributed to the inherent similarity between these activities, particularly from the perspective of smartphone gyroscope data.
 
