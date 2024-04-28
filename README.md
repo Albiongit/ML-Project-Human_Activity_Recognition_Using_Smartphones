@@ -19,7 +19,7 @@ After installing Python, these are the libraries required to run the scripts:
 - sklearn.metrics.recall_score: This library implements several loss, score, and utility functions to measure classification performance.
 - sklearn.metrics.f1_score: Used to compute the F1 score, also known as balanced F-score or F-measure.
 - matplotlib.pyplot: A library for creating static, animated, and interactive visualizations.
-- 
+
 ```bash
 pip install pandas
 pip install numpy
