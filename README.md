@@ -13,6 +13,12 @@ The script is written in Python so you will need to install Python in your machi
 After installing Python, these are the libraries required to run the scripts:
 - pandas: Used for data manipulation and analysis.
 - numpy: A library for numerical operations in Python.
+- sklearn.ensemble.RandomForestClassifier: Used to solve for regression or classification problems
+- sklearn.ensemble.GradientBoostingClassifier: A library that repeatedly selects a function that leads in the direction of a weak hypothesis or negative gradient so that it can minimize a loss function.
+- sklearn.metrics.precision_score: This library implements several loss, score, and utility functions to measure classification performance.
+- sklearn.metrics.recall_score: This library implements several loss, score, and utility functions to measure classification performance.
+- sklearn.metrics.f1_score: Used to compute the F1 score, also known as balanced F-score or F-measure.
+- matplotlib.pyplot: A library for creating static, animated, and interactive visualizations.
 
 ```bash
 pip install pandas
