@@ -39,6 +39,7 @@ We will develop a prediction about human unexpected behaviors: whether a person 
 The classification algorithms that we intend to use to find the one that best fits our needs and yields better results are:
 1.  Random Forest Algorithm
 2.  Gradient Boosting Machines Algorithm
+
 with the possibility to add any more suitable algorithm in the future during work.
 
 ## Phase 2
