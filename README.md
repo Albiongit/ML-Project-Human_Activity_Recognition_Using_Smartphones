@@ -20,16 +20,6 @@ After installing Python, these are the libraries required to run the scripts:
 - sklearn.metrics.f1_score: Used to compute the F1 score, also known as balanced F-score or F-measure.
 - matplotlib.pyplot: A library for creating static, animated, and interactive visualizations.
 
-```bash
-pip install pandas
-pip install numpy
-```
-
-and then write the following command in the terminal:
-```bash
-python script.py
-```
-
 In this project, we have used a dataset borrowed from the UC Irvine Machine Learning Repository at the following link: [Human Activity Recognition Using Smartphones](https://archive.ics.uci.edu/dataset/240/human+activity+recognition+using+smartphones). It contains 561 columns which are included in the Rar file uploaded on the corresponding page found in the "features.txt" file.
 
 Data preprocessing:
