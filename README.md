@@ -90,7 +90,7 @@ In the image below you can find the overall accuracy of the algorithms in predic
 In the image below we can see the percentage of what activity the algorithms got wrong. This is expressed as a percentage of the activities the algorithms predicted wrongly.
 ![image](https://github.com/Albiongit/ML-Project-Human_Activity_Recognition_Using_Smartphones/assets/34185066/7463ea38-63d9-42c9-b549-3c4983a4ca31)
 
-As a last step we took to evaluate our model and check for algorithm's accuracy is to visualize the pairs of activities, so ** CORRECT ACTIVITY - WRONGLY PREDICTED ACTIVITY **, for each algorithm separately.
+As a last step we took to evaluate our model and check for algorithm's accuracy is to visualize the pairs of activities, so **CORRECT ACTIVITY - WRONGLY PREDICTED ACTIVITY**, for each algorithm separately.
 
 **Random Forest**
 ![image](https://github.com/Albiongit/ML-Project-Human_Activity_Recognition_Using_Smartphones/assets/34185066/b16169bb-bee0-469d-a6c3-c98a7b1d19fc)
