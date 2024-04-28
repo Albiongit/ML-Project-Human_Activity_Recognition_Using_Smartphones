@@ -9,7 +9,11 @@ The experiments have been carried out with a group of 30 volunteers within an ag
 The sensor signals (accelerometer and gyroscope) were pre-processed by applying noise filters and then sampled in fixed-width sliding windows of 2.56 sec and 50% overlap (128 readings/window). The sensor acceleration signal, which has gravitational and body motion components, was separated using a Butterworth low-pass filter into body acceleration and gravity. The gravitational force is assumed to have only low frequency components, therefore a filter with 0.3 Hz cutoff frequency was used. From each window, a vector of features was obtained by calculating variables from the time and frequency domain.
 
 ## Phase 1
-To execute this project, first you need to install the libraries pandas and numpy by writing the following command in the terminal:
+The script is written in Python so you will need to install Python in your machine. More information about it you can find [Python's Official Page](https://www.python.org).
+After installing Python, these are the libraries required to run the scripts:
+- pandas: Used for data manipulation and analysis.
+- numpy: A library for numerical operations in Python.
+
 ```bash
 pip install pandas
 pip install numpy
@@ -22,12 +26,19 @@ python script.py
 
 In this project, we have used a dataset borrowed from the UC Irvine Machine Learning Repository at the following link: [Human Activity Recognition Using Smartphones](https://archive.ics.uci.edu/dataset/240/human+activity+recognition+using+smartphones). It contains 561 columns which are included in the Rar file uploaded on the corresponding page found in the "features.txt" file.
 
+Data preprocessing:
+1.  Loading the data:
+-  The dataset is read from a path and loaded into a pandas DataFrame using the pd.read_csv function.
+2.  Checking for Null Values
+- A null value count check is performed on each column of the dataset.
+3.  Handling Null Values:
+- The number of null values was zero.
+
 We will develop a prediction about human unexpected behaviors: whether a person will engage in unexpected behaviors during the day or predict patterns of human activities based on data recorded by a smartphone.
 
 The classification algorithms that we intend to use to find the one that best fits our needs and yields better results are:
-1.  Naive Bayes
-2.  Decision Tree
-3.  Logistic Regression
+1.  Random Forest Algorithm
+2.  Gradient Boosting Machines Algorithm
 with the possibility to add any more suitable algorithm in the future during work.
 
 ## Phase 2
