@@ -88,6 +88,7 @@ This is the first method we used for our model evaluation and the results are as
 
 #### Random Forest Model Metrics:
 ```bash
+Accuracy: 81.74414658975229
 Precision: 0.8197205741687814
 Recall: 0.8174414658975229
 F1-Score: 0.8172982748951982
@@ -95,6 +96,7 @@ F1-Score: 0.8172982748951982
 
 #### Gradient Boosting Machines Model Metrics:
 ```bash
+Accuracy: 79.84390906006108
 Precision: 0.8000325277318522
 Recall: 0.7984390906006108
 F1-Score: 0.7988625485684024
@@ -133,10 +135,50 @@ Achieving an 80% accuracy demonstrates the effectiveness of the selected feature
 While some misclassifications occurred, particularly in activities with similar movement patterns, the overall performance of the models indicates a high level of predictive power. 
 This level of accuracy is considered very good, especially in the context of complex human activity recognition tasks using sensor data.
 
+## Phase 3
+
+In this phase we've added another algorithm to potentially reach higher levels of accuracy in predicting the activities of the subjects. We added SVM (Support Vector Machine) and got the results like below.
+
+#### Support Vector Machine Model Metrics:
+```bash
+Accuracy: 84.5945028842891
+Precision: 0.8544101419075175
+Recall: 0.845945028842891
+F1-Score: 0.8463846813290467
+```
+
+Accuracy chart of algorithms, SVM included.
+![image](https://github.com/Albiongit/ML-Project-Human_Activity_Recognition_Using_Smartphones/assets/62037447/2ea50ff0-11a6-4267-bd20-570f32d03488)
+
+Percentage of missed predictions activity pairs by SVM. 
+![image](https://github.com/Albiongit/ML-Project-Human_Activity_Recognition_Using_Smartphones/assets/62037447/075908d5-0095-4b73-8a2a-fb414b7583a9)
+
+### • GUI application to use the trained model •
+
+We've developed a simple GUI app where you can upload a csv of data and the model will then predict the activity and visualize useful information. This app uses the SVM trained model to make the predictions because that's the one with the best evaluation scores.
+
+![image](https://github.com/Albiongit/ML-Project-Human_Activity_Recognition_Using_Smartphones/assets/62037447/cd738966-9400-40af-b577-5e8a0dc0f85a)
+
+Upon successful upload the subjects will appear below as icons. 
+
+![image](https://github.com/Albiongit/ML-Project-Human_Activity_Recognition_Using_Smartphones/assets/62037447/6476b6c9-c96a-4119-b455-155a2eb246cf)
+
+If for example we click on Subject 2 a window appears with the distribution of activities for that specific subject.
+
+![image](https://github.com/Albiongit/ML-Project-Human_Activity_Recognition_Using_Smartphones/assets/62037447/0e158e4a-89e4-4f96-9faa-ce52c6fdf96f)
+
+If we choose "More statistics" option a new window appears where we see by default the distribution of activities by all subjects.
+
+![image](https://github.com/Albiongit/ML-Project-Human_Activity_Recognition_Using_Smartphones/assets/62037447/cee08e6d-c2a6-4b84-a712-4b56efc8d426)
+
+There's also the option to see data of subjects based on a specific activity like "Standing" for example, like in the image below.
+
+![image](https://github.com/Albiongit/ML-Project-Human_Activity_Recognition_Using_Smartphones/assets/62037447/ae76bb6f-f4fb-4fa2-b475-a02dc27370f7)
+
+
 ## Current Status
 
-At the current time the project has finalized the second phase of requirements. The dataset is preprocessed and the model has been trained & evaluated as mentioned above under the Phase 2 section.
-The next parts of the project are on the way!
+The project has completed all phases of requirements, and we've successfully trained a model to make predictions of activities based on gyroscope data. In addition we've developed a simple GUI app to make use of the trained model and make a few useful visualizations based on the predicted data.
 
 ## Contributors
 
